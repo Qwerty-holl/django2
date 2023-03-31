@@ -47,11 +47,13 @@ aside ul li:hover, aside ul a:hover {
     text-decoration: none;
     transform: scale(1.05);
 }
+.entrance{
+    width: 117px;
+}
 a:link{
   text-decoration: none!important;
 }
 main .feature{
-    background: #2C3333;
     float: left;
     color: #fff;
     margin-top: 200px;
@@ -76,3 +78,8 @@ form{
     margin-top: 50px;
     text-align: center;
 }
+.register_h1{
+    margin-right: 30px;
+}
+
+

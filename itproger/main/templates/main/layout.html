@@ -16,6 +16,7 @@
     <aside>
     <span class="logo">Tima_holl</span>
     <img src="{% static 'main/img/logo.png'%}" alt="logo">
+    <a  href="{% url 'login' %}"><botton class="btn btn-info entrance">Войти</botton></a>
      <h3>Навигация</h3>
         <ul>
             <a href="{% url 'home'%}"><li><i class="fa-solid fa-house-chimney"></i>Главная</li></a>
@@ -27,6 +28,7 @@
     </aside>
     <main>
     {% block content %}
+
     {% endblock %}
     </main>
 </body>

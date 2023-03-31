@@ -1,8 +1,23 @@
 {% extends 'main/layout.html'%}
-
+{% load static %}
 {%block title%}{{ title }}{% endblock %}
 
-
+<!--    {% block menu %}-->
+<!--    <aside>-->
+<!--    <span class="logo">Tima_holl</span>-->
+<!--    <img src="{% static 'main/img/logo.png'%}" alt="logo">-->
+<!--    <a  href="{% url 'about' %}"><botton class="btn btn-success">Регистрация</botton></a>-->
+<!--    <a  href="{% url 'about' %}"><botton class="btn btn-info">Войти</botton></a>-->
+<!--     <h3>Навигация</h3>-->
+<!--        <ul>-->
+<!--            <a href="{% url 'home'%}"><li><i class="fa-solid fa-house-chimney"></i>Главная</li></a>-->
+<!--            <a href="{% url 'about'%}"><li><i class="fa-solid fa-ghost"></i>  Про нас</li></a>-->
+<!--            <a href="{% url 'news_home'%}"><li><i class="fas fa-address-card"></i>Новости на сайте</li></a>-->
+<!--            <a href="{% url 'contact'%}"><li><i class="fa-solid fa-envelope"></i>Контакты</li></a>-->
+<!--            <a href="{% url 'create' %}"><li><botton class="btn btn-info"><i class="fas fa-plus-circle"></i>Добавить запись</botton></li></a>-->
+<!--        </ul>-->
+<!--    </aside>-->
+<!--    {% endblock %}-->
 {%block content%}
     <div class="feature">
         <h1>{{ title }}</h1><br>
