@@ -1,0 +1,18 @@
+{% extends 'main/layout.html'%}
+
+{%block title%}Регистрация{% endblock %}
+
+
+{%block content%}
+    <div class="feature">
+        <h1 class="register_h1">Создание личного кабинета</h1>
+      <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            {{ form.title }}<br>
+            {{ form.email }}<br>
+            {{ form.number }}<br>
+            {{ form.text }}<br>
+          <button class="btn btn-success entrance" type="submit">Создать</button>
+      </form>
+    </div>
+{% endblock %}
