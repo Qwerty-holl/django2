@@ -1,9 +1,11 @@
 import smtplib
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import AddPostForm, RegisterForm
-from django.contrib.auth.views import LoginView
+from .forms import AddPostForm, RegisterForm, AuthUserForm, RegisterUserForm
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
+from django.views.generic import CreateView
+from django.contrib.auth import authenticate, login as dj_login
 
 
 def index(request):
@@ -52,6 +54,35 @@ def register(request):
         return HttpResponse(f'{title}, {email}, {number}, {text}')
     return render(request, 'main/register.html', {'form': form})
 
-# class MyprojectLoginView(LoginView):
-#     template_name = 'register.html'
-#     form_class = RegisterForm()
+
+class MyprojectLoginView(LoginView):
+    template_name = 'main/login.html'
+    form_class = AuthUserForm
+    success_url = '/'
+
+    def get_success_url(self):
+        return self.success_url
+
+
+class RegisterUserView(CreateView):
+    model = User
+    template_name = 'main/register.html'
+    form_class = RegisterUserForm
+    success_url = '/'
+    success_msg = 'Пользователь успешно создан'
+
+    def get_success_url(self):
+        return self.success_url
+
+    def form_valid(self, form):
+        form_valid = super().form_valid(form)
+        username = form.cleaned_data["username"]
+        password = form.cleaned_data["password"]
+        email = form.cleaned_data["email"]
+        aut_user = authenticate(username=username, password=password, email=email)
+        dj_login(self.request, aut_user)
+        return form_valid
+
+
+class MyProjectLogout(LogoutView):
+    next_page = '/'

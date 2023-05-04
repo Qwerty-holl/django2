@@ -7,7 +7,9 @@
       <h1>{{ article.title }}</h1>
       <h5>{{ article.full_text }}</h5><br>
       <h5>{{ article.date }}</h5><br>
+        {% if request.user.is_superuser %}
       <a href="{% url 'news-update' article.id %}"><button class="btn btn-success" type="submit">Редакитровать статью</button></a>
       <a href="{% url 'news-delete' article.id %}"><button class="btn btn-danger" type="submit">Удалить статью</button></a>
+        {% endif %}
     </div>
 {% endblock %}

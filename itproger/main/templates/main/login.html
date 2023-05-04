@@ -1,16 +1,16 @@
 {% extends 'main/layout.html'%}
 
-{%block title%}Регистрация{% endblock %}
+{%block title%}Авторизация{% endblock %}
 
 
 {%block content%}
     <div class="feature">
         <h1 class="register_h1">Вход</h1>
-      <form method="post" action="{% url 'login' %}">
+      <form method="post">
             {% csrf_token %}
-            {{ form.email }}<br>
-            {{ form.text }}<br>
-          <button class="btn btn-success entrance" type="submit">Войти </button>
+            {{form.username}} <br>
+            {{form.password}} <br>
+          <button class="btn btn-success entrance" type="submit">Войти</button>
           <p>У вас нет учетной записи? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
       </form>
     </div>

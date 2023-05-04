@@ -6,12 +6,11 @@
 {%block content%}
     <div class="feature">
         <h1 class="register_h1">Создание личного кабинета</h1>
-      <form method="post" action="{% url 'register' %}">
+      <form method="post">
             {% csrf_token %}
-            {{ form.title }}<br>
-            {{ form.email }}<br>
-            {{ form.number }}<br>
-            {{ form.text }}<br>
+            {{form.username}}<br>
+            {{form.password}}<br>
+            {{form.email}}<br>
           <button class="btn btn-success entrance" type="submit">Создать</button>
       </form>
     </div>
